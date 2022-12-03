@@ -9,9 +9,9 @@ interface SolverScope {
     fun Any?.yield()
 }
 
-open class SolverScopeImpl(private val day: Int) : SolverScope {
+open class SolverScopeImpl(day: Int) : SolverScope {
 
-    private val input = Input(day).readText()
+    private val input = Input(day).readText().trimEnd()
     protected var part = 1
 
     init {

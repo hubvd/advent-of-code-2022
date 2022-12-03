@@ -1,4 +1,4 @@
-class Day03Test : TestSolverSpec(3, {
+class Day03Test : SolverSpec(3, {
     example = """
     vJrwpWtwJgWrhcsFMMfFFhFp
     jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL

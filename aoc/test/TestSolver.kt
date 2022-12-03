@@ -21,7 +21,7 @@ class InputSolverScopeImpl(day: Int) : SolverScopeImpl(day) {
 }
 
 
-abstract class TestSolverSpec(day: Int, body: TestSolverSpec.() -> Unit = {}) : FreeSpec() {
+abstract class SolverSpec(day: Int, body: SolverSpec.() -> Unit = {}) : FreeSpec() {
     private val solver: Solver
 
     init {
