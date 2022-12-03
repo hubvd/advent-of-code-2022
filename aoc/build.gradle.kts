@@ -4,7 +4,7 @@ plugins {
 }
 
 application {
-    mainClass.set("Day01Kt")
+    mainClass.set("MainKt")
 }
 
 dependencies {

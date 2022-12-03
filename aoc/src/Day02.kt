@@ -29,16 +29,16 @@ private object RpcComparator : Comparator<RPC> {
     }
 }
 
-fun main() {
+val day2solver = solver(2) {
     fun Pair<RPC, RPC>.score(): Int = ((RpcComparator.compare(second, first) + 1) * 3) + RPC.values().indexOf(second) + 1
-    Input(2).lineSequence().map { RPC(it[0]) to RPC(it[2]) }.toList().run {
-        println(sumOf { it.score() })
-        println(map { (theirs, ours) ->
+    lineSequence().map { RPC(it[0]) to RPC(it[2]) }.toList().run {
+        sumOf { it.score() }.yield()
+        map { (theirs, ours) ->
             theirs to when (ours) {
                 RPC.Rock -> RPC.values().find { RpcComparator.compare(it, theirs) < 0 }!!
                 RPC.Paper -> RPC.values().find { RpcComparator.compare(it, theirs) == 0 }!!
                 RPC.Scissors -> RPC.values().find { RpcComparator.compare(it, theirs) > 0 }!!
             }
-        }.sumOf { it.score() })
+        }.sumOf { it.score() }.yield()
     }
 }
