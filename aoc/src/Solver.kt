@@ -1,6 +1,8 @@
 interface SolverScope {
     fun lineSequence(): Sequence<String>
 
+    fun lines() = lineSequence().toList()
+
     fun text() = lineSequence().joinToString("\n")
     fun Any?.yield(text: String) {
         println("$text: $this")
