@@ -39,7 +39,7 @@ object Solvers {
     operator fun get(day: Int) = solvers[day -1]
 }
 
-fun solver(day: Int, block: SolverScope.() -> Any) = Solver(day, block).also { Solvers += it }
+fun solver(day: Int, block: SolverScope.() -> Unit) = Solver(day, block).also { Solvers += it }
 
 fun Solver.solve() {
     with(SolverScopeImpl(day)) {
