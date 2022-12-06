@@ -4,6 +4,8 @@ interface SolverScope {
     fun lines() = lineSequence().toList()
 
     fun text() = lineSequence().joinToString("\n")
+
+    fun groups() = text().split("\n\n").map { it.lines() }
     fun Any?.yield(text: String) {
         println("$text: $this")
     }
