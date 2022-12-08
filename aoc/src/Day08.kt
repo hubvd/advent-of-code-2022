@@ -27,16 +27,7 @@ val day8solver = solver(8) {
 
     points.maxOf { (point, value) ->
         point.adjacents().map {
-            var count = 0
-            for (point in it) {
-                if (point.value < value) {
-                    count++
-                } else {
-                    count++
-                    break
-                }
-            }
-            count
+            (it.map { it.value }.indexOfFirst { it >= value }.takeIf { it != -1 } ?: (it.size - 1)) + 1
         }.reduce { acc, cur -> acc * cur }
     }.yield()
 
