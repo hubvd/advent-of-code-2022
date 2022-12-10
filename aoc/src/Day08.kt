@@ -1,5 +1,3 @@
-private data class Point(val x: Int, val y: Int)
-
 val day8solver = solver(8) {
     val grid = lines().map { it.map { it.digitToInt() } }
     val points = buildMap {

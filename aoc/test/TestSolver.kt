@@ -42,7 +42,7 @@ abstract class SolverSpec(day: Int, body: SolverSpec.() -> Unit = {}) : FreeSpec
             val solverScope = ExampleSolverScopeImpl(example)
             with(solverScope) {
                 with(solver) {
-                    block()
+                    if (part1Example != null) block()
                 }
             }
 
@@ -59,7 +59,7 @@ abstract class SolverSpec(day: Int, body: SolverSpec.() -> Unit = {}) : FreeSpec
             val solverScope = InputSolverScopeImpl(day)
             with(solverScope) {
                 with(solver) {
-                    block()
+                    if (part1 != null) block()
                 }
             }
             "part 1".config(enabled = part1 != null && solverScope.results[0] != null) {
