@@ -33,13 +33,10 @@ private class Cpu(private val program: Program) {
 
     fun run(observe: Cpu.() -> Unit) {
         while (programIndex < program.size) {
-            // TODO start: totally off, ??? -> used the output in vim to realign it
-            if ((cycle + 1) % 40 == 0) crt.appendLine()
-            var c = cycle % 40
+            if (cycle != 1 && (cycle - 1) % 40 == 0) crt.appendLine()
+            val c = cycle % 40
             val range = (c - 2)..(c)
-            val visible = x in range
-            if (visible) crt.append('#') else crt.append('.')
-            // TODO: end
+            if (x in range) crt.append('#') else crt.append('.')
             observe(this)
             tick()
         }
